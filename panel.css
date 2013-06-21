@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#request-list {
+  width: 20%;
+  height: 100%;
+  float:left;
+  overflow: auto;
+  border-right: 1px solid #ccc;
+  font-size: 0.6em;
+}
+
+#debug-toolbar-panel {
+  width: 80%;
+  height: 100%;
+  border: none;
+}
+
+.request {
+  height: 3em;
+  line-height: 3em;
+  padding-left: 0.5em;
+  cursor: pointer;
+}
+
+.request:nth-child(even) {
+  background: #ddd;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.request:hover {
+  background: #ffc;
+}
+
+.request.selected {
+  font-weight: bold;
+  background: #d0dffa;
+}
