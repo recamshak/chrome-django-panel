@@ -2,8 +2,13 @@
   "name": "Django Debug Panel",
   "version": "0.5",
   "manifest_version": 2,
+  "homepage_url": "https://github.com/recamshak/chrome-django-panel",
 
-  "description": "Django Debug Toolbar inside WebKit DevTools. Works fine with background AJAX requests and non-HTML responses. Great for single-page applications and other AJAX intensive web applications.",
+  "description": "Django Debug Toolbar inside WebKit DevTools. Works fine with background AJAX requests and non-HTML responses.",
+
+  "icons": {
+    "128": "extension-icon.png"
+  },
 
   "devtools_page": "background.html"
 }

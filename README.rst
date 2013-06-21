@@ -1,5 +1,5 @@
 ==================
-Django Debug Panel
+Django Debug Panel (chrome extension)
 ==================
 
 Django Debug Toolbar inside WebKit DevTools. Works fine with background AJAX requests and non-HTML responses.
