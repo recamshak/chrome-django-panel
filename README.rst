@@ -21,6 +21,14 @@ Installation
         'debug_panel',
     )
 
+#. Replace ``debug-toolbar`` middleware with ``debug-panel`` middleware in your ``MIDDLEWARE_CLASSES`` setting:
+
+    MIDDLEWARE_CLASSES = (
+        # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+        'debug_panel.middleware.DebugPanelMiddleware',
+        # ...
+    )
+    
 #. Run ``python manage.py syncdb`` to create the table that store debug information
 
 #. Install the Chrome extension `Django Debug Panel <https://chrome.google.com/webstore/detail/django-debug-panel/nbiajhhibgfgkjegbnflpdccejocmbbn>`_
