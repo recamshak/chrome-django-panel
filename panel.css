@@ -3,25 +3,41 @@
 }
 
 html, body {
+  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-family: Ubuntu, Arial;
+  font-size: 11px;
+}
+
+html {
+  display: table;
+}
+
+body {
+  display: table-row;
 }
 
 #request-list {
-  width: 20%;
   height: 100%;
   float:left;
   overflow: auto;
   border-right: 1px solid #ccc;
-  font-size: 0.6em;
+  display: table-cell;
 }
 
 #debug-toolbar-panel {
-  width: 80%;
+  width: 100%;
   height: 100%;
   border: none;
+}
+
+
+.iframe-wrapper {
+  display: table-cell;
+  width: 100%;
 }
 
 .request {
@@ -29,12 +45,14 @@ html, body {
   line-height: 3em;
   padding-left: 0.5em;
   cursor: pointer;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .request:nth-child(even) {
-  background: #ddd;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .request:hover {
@@ -44,4 +62,14 @@ html, body {
 .request.selected {
   font-weight: bold;
   background: #d0dffa;
+}
+
+.split-view-resizer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  z-index: 1500;
+  cursor: ew-resize;
+  margin-left: -2.5px;
 }

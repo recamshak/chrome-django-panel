@@ -1,7 +1,42 @@
+$(function() {
+	function resizeLeftPanel(width) {
+		$('#request-list').width(width);
+		$('.split-view-resizer').css('left', width);
+	}
+
+	resizeLeftPanel(localStorage['sidePanelWidth'] || 200);
+
+	function resizerDragMove(event) {
+		resizeLeftPanel(event.pageX);
+		event.preventDefault();
+	}
+
+	function resizerDragEnd(event) {
+		resizeLeftPanel(event.pageX);
+		localStorage['sidePanelWidth'] = event.pageX + 'px';
+
+		$(document).off('mousemove', resizerDragMove);
+		$(document).off('mouseup', resizerDragEnd);
+	}
+
+	$('.split-view-resizer').on('mousedown', function() {
+		$(document).on('mousemove', resizerDragMove);
+		$(document).on('mouseup', resizerDragEnd);
+	});
+});
+
 
 function buildRequestEl(requestUrl, debugDataUrl) {
+	var url = decodeURIComponent(requestUrl),
+			anchor = document.createElement('a'),
+			path;
+
+	anchor.href = url;
+	path = decodeURIComponent(anchor.pathname + anchor.search);
+
 	return $('<div class="request"></div>')
-		.text(decodeURIComponent(requestUrl))
+		.text(path)
+		.attr('title', url)
 		.on('click', function() {
 			$('.selected').removeClass('selected');
 			$(this).addClass('selected');
