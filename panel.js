@@ -47,7 +47,7 @@ function buildRequestEl(requestUrl, debugDataUrl) {
 
 chrome.devtools.network.onRequestFinished.addListener(function(entry) {
 	$.each(entry.response.headers, function(i, header) {
-		if (header.name === 'X-debug-data-url') {
+		if (header.name === 'x-debug-data-url') {
 			$('#request-list').append(buildRequestEl(entry.request.url, header.value));
 			return false;
 		}
