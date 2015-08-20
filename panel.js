@@ -4,7 +4,16 @@ $(function() {
 		$('.split-view-resizer').css('left', width);
 	}
 
-	resizeLeftPanel(localStorage['sidePanelWidth'] || 200);
+	var initial_size = 200;
+	var can_access_localStorage = true;
+	try {
+		initial_size = localStorage['sidePanelWidth'];
+	}
+	catch (ex) {
+		can_access_localStorage = false;
+	}
+
+	resizeLeftPanel(initial_size);
 
 	function resizerDragMove(event) {
 		resizeLeftPanel(event.pageX);
@@ -13,7 +22,8 @@ $(function() {
 
 	function resizerDragEnd(event) {
 		resizeLeftPanel(event.pageX);
-		localStorage['sidePanelWidth'] = event.pageX + 'px';
+		if (can_access_localStorage)
+			localStorage['sidePanelWidth'] = event.pageX + 'px';
 
 		$(document).off('mousemove', resizerDragMove);
 		$(document).off('mouseup', resizerDragEnd);
