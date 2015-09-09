@@ -1,4 +1,15 @@
 $(function() {
+    var localStorage;
+    // The "Block sites from setting any data" option prevents the extension
+    // from accessing the localStorage. Any attempt to access window.localStorage
+    // will raise a security exception.
+    try {
+        localStorage = window.localStorage;
+    }
+    catch (e) {
+        localStorage = {};
+    }
+
 	function resizeLeftPanel(width) {
 		$('#request-list').width(width);
 		$('.split-view-resizer').css('left', width);
