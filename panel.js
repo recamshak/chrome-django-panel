@@ -13,6 +13,7 @@ $(function() {
     function resizeLeftPanel(width) {
         $('#request-list').width(width);
         $('.split-view-resizer').css('left', width);
+        $('.iframe-wrapper').css('padding-left', width);
     }
 
     resizeLeftPanel(localStorage.sidePanelWidth || 200);
