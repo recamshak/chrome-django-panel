@@ -26,6 +26,7 @@ body {
   overflow: auto;
   border-right: 1px solid #ccc;
   display: table-cell;
+  position: fixed;
 }
 
 #debug-toolbar-panel {
